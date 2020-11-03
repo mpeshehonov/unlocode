@@ -20,6 +20,15 @@ interface ReaderInterface
     public function read($path, $country);
 
     /**
+     * Find entry by entry.
+     *
+     * @param string $path
+     * @param string $country
+     * @return array
+     */
+    public function find($path, $country);
+
+    /**
      * Find entry by entry field value
      *
      * @param string $path

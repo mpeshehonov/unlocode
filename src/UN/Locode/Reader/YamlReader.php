@@ -41,6 +41,22 @@ class YamlReader implements ReaderInterface
     /**
      * {@inheritdoc}
      */
+    public function find($path, $country)
+    {
+        $country = strtolower($country);
+
+        $fileName = $path . '/' . $country . '.yaml';
+
+        if (!file_exists($fileName)) {
+            return null;
+        }
+
+        return $this->read($path, $country);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findEntry($path, $country, $field, $value)
     {
         $country = strtolower($country);
