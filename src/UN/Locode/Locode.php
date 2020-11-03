@@ -47,7 +47,11 @@ class Locode implements LocodeInterface
      */
     public function getListByCountry($country)
     {
-        $list = $this->reader->read($this->path, $country);
+        $list = $this->reader->find($this->path, $country);
+
+        if ($list === null) {
+            return null;
+        }
 
         foreach($list as $key => $entry) {
             $list[$key] = new Location($entry);
